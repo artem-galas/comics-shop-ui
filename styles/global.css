@@ -1,0 +1,40 @@
+@import "_footer.css";
+
+:root {
+  --mdc-theme-primary: #3f51b5;
+  --mdc-theme-secondary: #ff4081;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+}
+
+.main-container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+  padding: 16px;
+}
+
+.card-list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.card-list .mdc-card {
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
+
+.card-list .mdc-card:last-child {
+  margin-right: 0;
+}

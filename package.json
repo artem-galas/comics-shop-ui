@@ -1,15 +1,35 @@
 {
   "name": "comics-shop-ui",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Comics Shop UI",
+  "author": "Artem Halas",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "@rmwc/card": "^5.7.2",
+    "@rmwc/data-table": "^5.7.2",
+    "@rmwc/icon-button": "^5.7.2",
+    "@rmwc/top-app-bar": "^5.7.2",
+    "@rmwc/typography": "^5.7.2",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "9.2.2",
     "react": "16.12.0",
     "react-dom": "16.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.4",
+    "@types/react": "^16.9.21",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.4.0",
+    "typescript": "^3.8.2"
   }
 }

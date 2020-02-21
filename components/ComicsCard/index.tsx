@@ -17,9 +17,10 @@ type ComicsCardProp = {
   img: string;
   description: string;
   price: number;
+  saveToBasket: (id: number) => void;
 }
 
-export const ComicsCard: React.FC<ComicsCardProp> = ({ id, title, img, description, price }) => (
+export const ComicsCard: React.FC<ComicsCardProp> = ({ id, title, img, description, price, saveToBasket }) => (
   <Card style={{ width: '21rem' }}>
     <CardPrimaryAction>
       <CardMedia
@@ -43,7 +44,7 @@ export const ComicsCard: React.FC<ComicsCardProp> = ({ id, title, img, descripti
         {price}
       </Typography>
       <CardActionIcons>
-        <CardActionIcon icon="shopping_cart" />
+        <CardActionIcon icon="shopping_cart" onClick={() => saveToBasket(id)} />
       </CardActionIcons>
     </CardActions>
   </Card>

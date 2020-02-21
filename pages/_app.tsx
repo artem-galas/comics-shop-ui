@@ -1,6 +1,9 @@
 import React from 'react';
-import { AppProps } from 'next/app'
+import NextApp from 'next/app';
 import Router from 'next/router';
+import { Store as ReduxStore } from 'redux';
+import { Provider } from 'react-redux';
+import withRedux from 'next-redux-wrapper';
 
 import { SimpleTopAppBar, TopAppBarFixedAdjust } from '@rmwc/top-app-bar';
 
@@ -13,27 +16,34 @@ import '@rmwc/data-table/data-table.css';
 
 import '../styles/global.css';
 import { Footer } from '../components';
+import { makeStore, State } from '../store';
 
-const App: React.FC<AppProps> = ({Component, pageProps}) => {
-  return (
-    <>
-      <div className="main-container">
-        <SimpleTopAppBar
-          title="Comics Shop"
-          actionItems={[{
-            icon: 'shopping_cart',
-            onClick: () => Router.push('/basket'),
-          }]}
-          fixed
-        />
-        <TopAppBarFixedAdjust />
-        <div className="content">
-          <Component {...pageProps} />
+class App extends NextApp<{ store: ReduxStore<State> }> {
+  render() {
+    const { Component, pageProps, store } = this.props;
+
+    return (
+      <>
+        <div className="main-container">
+          <SimpleTopAppBar
+            title="Comics Shop"
+            actionItems={[{
+              icon: 'shopping_cart',
+              onClick: () => Router.push('/basket'),
+            }]}
+            fixed
+          />
+          <TopAppBarFixedAdjust />
+          <Provider store={store}>
+            <div className="content">
+              <Component {...pageProps} />
+            </div>
+          </Provider>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </>
-  );
-};
+      </>
+    );
+  }
+}
 
-export default App;
+export default withRedux(makeStore)(App);

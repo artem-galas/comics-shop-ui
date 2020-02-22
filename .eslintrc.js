@@ -17,6 +17,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking'
   ],
   rules: {
+    "max-len": ["warn", { "code": 115, "tabWidth": 2 }],
     "react/jsx-filename-extension": ["warn", {
       "extensions": [".jsx", ".tsx"]
     }],
@@ -26,6 +27,7 @@ module.exports = {
       "html": "ignore",
       "exceptions": ["Component"],
     }],
+    "react/jsx-one-expression-per-line": ["off"],
     "react/prop-types": "off",
     "import/prefer-default-export": "off",
     "import/named": "off",

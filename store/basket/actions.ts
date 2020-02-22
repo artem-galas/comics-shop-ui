@@ -60,6 +60,7 @@ export const addItem = (state: BasketState, data: ComicsDto): BasketState => {
 };
 
 export const removeItem = (state: BasketState, key: string): BasketState => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { [key]: deletedKey, ...newState } = state;
 
   return newState;

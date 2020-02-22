@@ -52,9 +52,7 @@ CharacterPage.getInitialProps = async ({ query, addToBasketDispatcher }: Charact
   return { comics: json.data, addToBasketDispatcher };
 };
 
-const mapDispatchToProps = {
-  addToBasketDispatcher: addToBasket,
-};
+const mapDispatchToProps = { addToBasketDispatcher: addToBasket };
 
 export default connect(
   null,

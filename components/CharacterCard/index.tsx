@@ -55,7 +55,7 @@ export const CharacterCard: React.FC<CharacterCardProp> = ({ title, imgUrl, slug
       </Typography>
       <CardActionIcons>
         <Link href="character/[slug]" as={`character/${slug}`}>
-          <a><CardActionIcon icon="arrow_forward" /></a>
+          <span><CardActionIcon icon="arrow_forward" /></span>
         </Link>
       </CardActionIcons>
     </CardActions>

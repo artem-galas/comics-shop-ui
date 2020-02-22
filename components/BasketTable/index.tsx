@@ -11,15 +11,14 @@ import {
 } from '@rmwc/data-table';
 import { IconButton } from '@rmwc/icon-button';
 
-import { BasketState } from '../../store/basket/actions';
+import { BasketState } from '../../store';
 
 type BasketTableProp = {
   products: BasketState;
   deleteFromBasket: (key: string) => void;
-  completeOrder: () => void;
 }
 
-export const BasketTable: React.FC<BasketTableProp> = ({products, deleteFromBasket, completeOrder }) => {
+export const BasketTable: React.FC<BasketTableProp> = ({ products, deleteFromBasket }) => {
   const getTotalPrice = (): number => {
     let price = 0;
     Object.values(products).forEach((value) => {
@@ -49,7 +48,7 @@ export const BasketTable: React.FC<BasketTableProp> = ({products, deleteFromBask
                   <DataTableRow key={key}>
                     <DataTableCell>{product.title}</DataTableCell>
                     <DataTableCell alignEnd>{product.quantity}</DataTableCell>
-                    <DataTableCell alignEnd>€ {product.unitPrice}</DataTableCell>
+                    <DataTableCell alignEnd>€{product.unitPrice}</DataTableCell>
                     <DataTableCell alignEnd>€{product.price}</DataTableCell>
                     <DataTableCell alignEnd>
                       <IconButton

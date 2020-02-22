@@ -1,8 +1,14 @@
 import React from 'react';
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
+import NextDocument, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from 'next/document';
 
 class Document extends NextDocument {
-  static async getInitialProps(ctx: any) {
+  static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await NextDocument.getInitialProps(ctx);
     return { ...initialProps };
   }

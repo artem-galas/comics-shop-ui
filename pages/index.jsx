@@ -1,17 +1,12 @@
 import React from 'react';
 
 import fetch from 'isomorphic-unfetch';
-import { NextPage } from 'next';
+import PropTypes from 'prop-types';
 
 import { API } from '../conf';
-import { BaseDto, CharacterDto } from '../dto';
 import { CharacterCard } from '../components';
 
-type HomePageProp = {
-  characters: Array<CharacterDto>;
-}
-
-const HomePage: NextPage<HomePageProp> = ({ characters }) => (
+const HomePage = ({ characters }) => (
   <>
     <div className="card-list">
       {
@@ -30,8 +25,20 @@ const HomePage: NextPage<HomePageProp> = ({ characters }) => (
 
 HomePage.getInitialProps = async () => {
   const res = await fetch(`${API}/characters`);
-  const json = await res.json() as BaseDto<CharacterDto[]>;
+  const json = await res.json();
   return { characters: json.data };
+};
+
+HomePage.propTypes = {
+  characters: PropTypes
+    .arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+        img: PropTypes.string,
+        slug: PropTypes.string,
+      }),
+    ),
 };
 
 export default HomePage;

@@ -9,7 +9,7 @@ Characters                 |  Comics
 
 - install dependencies
 ```bash
-npm iinstall
+npm install
 # or
 yarn
 ```
@@ -29,3 +29,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Redux](https://redux.js.org/) - react state management
 - [TypeScript](https://www.typescriptlang.org/)  - typed superset of JavaScript
 - [Zeit](https://zeit.co/) - hosting
+
+## BackEnd
+If you interested in back-end please have a look ->  https://github.com/artem-galas/comics-shop-api
+

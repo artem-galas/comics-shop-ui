@@ -1,11 +1,8 @@
 import React from 'react';
 import NextApp from 'next/app';
-import Router from 'next/router';
 import { Store as ReduxStore } from 'redux';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
-
-import { SimpleTopAppBar, TopAppBarFixedAdjust } from '@rmwc/top-app-bar';
 
 import '@material/card/dist/mdc.card.css';
 import '@material/button/dist/mdc.button.css';
@@ -15,7 +12,7 @@ import '@material/typography/dist/mdc.typography.css';
 import '@rmwc/data-table/data-table.css';
 
 import '../styles/global.css';
-import { Footer } from '../components';
+import { Footer, Header } from '../components';
 import { makeStore, State } from '../store';
 
 class App extends NextApp<{ store: ReduxStore<State> }> {
@@ -25,15 +22,7 @@ class App extends NextApp<{ store: ReduxStore<State> }> {
     return (
       <>
         <div className="main-container">
-          <SimpleTopAppBar
-            title="Comics Shop"
-            actionItems={[{
-              icon: 'shopping_cart',
-              onClick: () => Router.push('/basket'),
-            }]}
-            fixed
-          />
-          <TopAppBarFixedAdjust />
+          <Header />
           <Provider store={store}>
             <div className="content">
               <Component {...pageProps} />

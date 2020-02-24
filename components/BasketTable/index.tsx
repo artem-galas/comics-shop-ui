@@ -12,13 +12,15 @@ import {
 import { IconButton } from '@rmwc/icon-button';
 
 import { BasketState } from '../../store';
+import { Button } from '@rmwc/button';
 
 type BasketTableProp = {
   products: BasketState;
   deleteFromBasket: (key: string) => void;
+  completeOrder: () => void;
 }
 
-export const BasketTable: React.FC<BasketTableProp> = ({ products, deleteFromBasket }) => {
+export const BasketTable: React.FC<BasketTableProp> = ({ products, deleteFromBasket, completeOrder }) => {
   const getTotalPrice = (): number => {
     let price = 0;
     Object.values(products).forEach((value) => {
@@ -70,6 +72,15 @@ export const BasketTable: React.FC<BasketTableProp> = ({ products, deleteFromBas
           </DataTableBody>
         </DataTableContent>
       </DataTable>
+      <div style={{
+        width: '550px',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        marginTop: '16px',
+      }}
+      >
+        <Button onClick={completeOrder} unelevated label="Complete Order" />
+      </div>
     </>
   );
 };

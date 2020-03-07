@@ -1,8 +1,10 @@
 import { ComicsDto } from '../../dto';
 import { State } from '../index';
+import { CompleteOrderDtoRequest } from '../../dto/complete-order-dto';
 
 export const AddActionType = '[Basket] ADD';
 export const RemoveActionType = '[Basket] REMOVE';
+export const CompleteOrderActionType = '[Basket] COMPLETE';
 
 interface AddToBasket {
   type: typeof AddActionType;
@@ -16,12 +18,19 @@ interface RemoveFromBasket {
   };
 }
 
+interface CompleteOrder {
+  type: typeof CompleteOrderActionType;
+  payload: CompleteOrderDtoRequest[];
+}
+
 export const addToBasket = (payload: ComicsDto): AddToBasket => ({ type: AddActionType, payload });
 export const removeFromBasket = (payload: {id: string}): RemoveFromBasket => ({ type: RemoveActionType, payload });
+export const completeOrder = (payload: CompleteOrderDtoRequest[]): CompleteOrder => ({ type: CompleteOrderActionType, payload });
 
 export type Actions =
   ReturnType<typeof addToBasket> |
-  ReturnType<typeof removeFromBasket>;
+  ReturnType<typeof removeFromBasket> |
+  ReturnType<typeof completeOrder>;
 
 export type BasketState = {
   [id: string]: {

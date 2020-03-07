@@ -3,6 +3,7 @@ import {
   AddActionType,
   addItem,
   BasketState,
+  CompleteOrderActionType,
   initialState,
   RemoveActionType,
   removeItem,
@@ -14,6 +15,8 @@ export function reducer(state = initialState, action: Actions): BasketState {
       return addItem(state, action.payload);
     case RemoveActionType:
       return removeItem(state, action.payload.id.toString());
+    case CompleteOrderActionType:
+      return { ...initialState };
     default:
       return state;
   }

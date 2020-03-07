@@ -9,7 +9,7 @@ import {
   removeItem,
 } from './actions';
 
-export function reducer(state = initialState, action: Actions): BasketState {
+export function reducer(state = initialState, action) {
   switch (action.type) {
     case AddActionType:
       return addItem(state, action.payload);

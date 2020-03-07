@@ -11,17 +11,10 @@ import {
 } from '@rmwc/data-table';
 import { IconButton } from '@rmwc/icon-button';
 
-import { BasketState } from '../../store';
 import { Button } from '@rmwc/button';
 
-type BasketTableProp = {
-  products: BasketState;
-  deleteFromBasket: (key: string) => void;
-  completeOrder: () => void;
-}
-
-export const BasketTable: React.FC<BasketTableProp> = ({ products, deleteFromBasket, completeOrder }) => {
-  const getTotalPrice = (): number => {
+export const BasketTable = ({ products, deleteFromBasket, completeOrder }) => {
+  const getTotalPrice = () => {
     let price = 0;
     Object.values(products).forEach((value) => {
       price += value.price;

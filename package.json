@@ -11,6 +11,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-pattern *.d.ts"
   },
   "dependencies": {
+    "@rmwc/button": "^5.7.2",
     "@rmwc/card": "^5.7.2",
     "@rmwc/data-table": "^5.7.2",
     "@rmwc/icon-button": "^5.7.2",
